@@ -1,42 +1,40 @@
 package com.arconex.exercise;
 
-import java.io.BufferedReader;
 import java.io.File;
-import java.io.FileReader;
+import java.util.List;
 
+import com.arconex.exercise.parser.FileParser;
+import com.arconex.exercise.parser.WordPerLineParser;
 
+/**
+ * Main class. Doesn't really do much apart from parsing the input files and then handing all the heavy lifting to the NumberToWordsMatcher
+ *
+ */
 public class Main {
 
 	public static final String DICTIONARY_PROPERTY = "dictionary";
 
-
 	public static void main(final String[] args) {
-		// TODO Auto-generated method stub
 
-		final String inputDictionaryPath = System.getProperty(DICTIONARY_PROPERTY);
+		try {
 
+			 final String inputDictionaryPath = System.getProperty(DICTIONARY_PROPERTY);
+			 final FileParser parser = new WordPerLineParser();
 
-		final File dictionary = new File(inputDictionaryPath);
+			 final List<String> inputPhoneNumbers = parser.parse(new File(args[0]));
+			 final List<String> dictionary = parser.parse(new File(inputDictionaryPath));
 
-		if (dictionary.isFile()) {
+			final NumberToWordsMatcher matcher = new NumberToWordsMatcher(inputPhoneNumbers, dictionary);
+			final List<String> allPermutations = matcher.findAllWordPermutation();
 
-			try {
-				final BufferedReader br = new BufferedReader(new FileReader(dictionary));
-
-				System.out.println(br.readLine());
-
-			} catch (final Exception e){
-
+			for (final String permutation : allPermutations) {
+				System.out.println(permutation);
 			}
-
-		} else {
-
-			System.out.println("Input Dictionary is not a file");
+		} catch (final Exception e) {
+			e.printStackTrace();
 			System.exit(-1);
-
 		}
-
-
+		System.exit(0);
 	}
 
 }
