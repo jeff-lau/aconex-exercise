@@ -13,14 +13,14 @@ public class DefaultDigitEncoding implements DigitEncoding {
 	static {
 		encodings.put(0, new String[0]);
 		encodings.put(1, new String[0]);
-		encodings.put(2, new String[] { "a", "b", "c" });
-		encodings.put(3, new String[] { "d", "e", "f" });
-		encodings.put(4, new String[] { "g", "h", "i" });
-		encodings.put(5, new String[] { "j", "k", "l" });
-		encodings.put(6, new String[] { "m", "n", "o" });
-		encodings.put(7, new String[] { "p", "q", "r", "s" });
-		encodings.put(8, new String[] { "t", "u", "v" });
-		encodings.put(9, new String[] { "w", "x", "y", "z" });
+		encodings.put(2, new String[] { "A", "B", "C" });
+		encodings.put(3, new String[] { "D", "E", "F" });
+		encodings.put(4, new String[] { "G", "H", "I" });
+		encodings.put(5, new String[] { "J", "K", "L" });
+		encodings.put(6, new String[] { "M", "N", "O" });
+		encodings.put(7, new String[] { "P", "Q", "R", "S" });
+		encodings.put(8, new String[] { "T", "U", "V" });
+		encodings.put(9, new String[] { "W", "X", "Y", "Z" });
 	}
 
 	/**

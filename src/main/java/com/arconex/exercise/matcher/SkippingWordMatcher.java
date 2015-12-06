@@ -9,6 +9,7 @@ import java.util.Map.Entry;
 import java.util.stream.Collectors;
 
 import com.arconex.exercise.encoding.DigitEncoding;
+import com.arconex.exercise.permutator.SkippingPermutator;
 
 /**
  * A word matcher that matches words to a number block.
@@ -58,8 +59,9 @@ public class SkippingWordMatcher implements WordMatcher {
 					.collect(Collectors.toList());
 
 				for (final String[] permutation : entry.getValue()) {
-					// Splice the matching words into the permutation to produce the final match result.
 					final List<String> matchingWords = match(permutation, reducedDictionary, 0, 0);
+
+					// Splice the matching words into the permutation to produce the final match result.
 					rval.addAll(spliceWordIntoDigitBlock(matchingWords, permutation, digitBlock));
 				}
 		}

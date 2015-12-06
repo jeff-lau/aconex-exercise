@@ -1,4 +1,4 @@
-package com.arconex.exercise.matcher;
+package com.arconex.exercise.permutator;
 
 import java.util.List;
 
